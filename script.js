@@ -21,6 +21,7 @@ function mangaFetch(id) {
             const characterIMG = document.createElement("img");
             const characterDIV = document.createElement("a");
 
+            characterDIV.target = "_blank"
             characterName.innerText = e.character.name;
             characterDIV.href = e.character.url;
             characterIMG.src = e.character.images.jpg.image_url;
