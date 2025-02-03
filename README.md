@@ -9,3 +9,7 @@ Jikan (時間) is an unofficial & open-source API for the “most active online 
 
 `URL` used for the `GET` request: `https://api.jikan.moe/v4/manga/${id}/characters`
 ##  
+
+https://coelhomarcus.github.io/get-manga-characters/
+
+##
