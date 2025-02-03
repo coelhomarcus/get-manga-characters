@@ -12,25 +12,25 @@ buttons.forEach(button => {
     })
 })
 
-function mangaFetch(id) {
-    const jikan = fetch(`https://api.jikan.moe/v4/manga/${id}/characters`)
-    jikan.then(r => r.json()).then(json => {
-        div.innerHTML = "";
-        json.data.forEach(e => {
-            const characterName = document.createElement("p");
-            const characterIMG = document.createElement("img");
-            const characterDIV = document.createElement("a");
+async function mangaFetch(id) {
+    const mangaResponse = await fetch(`https://api.jikan.moe/v4/manga/${id}/characters`);
+    const mangaJson = await mangaResponse.json();
 
-            characterDIV.target = "_blank"
-            characterName.innerText = e.character.name;
-            characterDIV.href = e.character.url;
-            characterIMG.src = e.character.images.jpg.image_url;
+    div.innerHTML = "";
 
-            characterDIV.appendChild(characterName);
-            characterDIV.appendChild(characterIMG);
-            div.appendChild(characterDIV);
+    mangaJson.data.forEach(manga => {
+        const characterName = document.createElement("p");
+        const characterIMG = document.createElement("img");
+        const characterDIV = document.createElement("a");
 
-        })
+        characterDIV.target = "_blank"
+        characterDIV.href = manga.character.url;
+        characterName.innerText = manga.character.name;
+        characterIMG.src = manga.character.images.jpg.image_url;
+
+        characterDIV.appendChild(characterName);
+        characterDIV.appendChild(characterIMG);
+        div.appendChild(characterDIV);
     })
 }
 
