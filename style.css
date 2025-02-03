@@ -64,6 +64,7 @@ body {
 }
 
 .buttons button {
+    color: #111;
     border: 2px solid #111;
     background-color: #FB5;
     padding: 10px 20px;
